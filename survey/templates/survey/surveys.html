@@ -1,0 +1,46 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://unpkg.com/mustard-ui@latest/dist/css/mustard-ui.min.css">
+  <meta charset="UTF-8">
+  <title>{{ title }}</title>
+</head>
+
+<body>
+  surveys
+  <div class="container">
+    <div class="col-md-12">
+      <div class="form-control-group" style="height:100%">
+          <div class="page-header">
+              <div class="rows">
+            {% csrf_token %}
+            {% for survey in surveys %}
+            <!-- <h2 align="center">{{question.question_txt}} </h2> -->
+            <p>
+            <a style="font-size:20px" href="{% url 'survey:survey-home' survey.id %}">{{survey.id}}:  {{survey.survey_title}}</a>
+          </p>
+            {% endfor %}
+            </div>
+
+            <div style="display: grid;">
+                <input type="button" onclick="location.href='{% url 'survey:survey-home' survey.id %}'" value="Start" />
+              <!-- <input class="button" target="" type="button" value="Start"> -->
+            </div>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript" src="/static/js/jquery-3.3.1.min.js"></script>
+  <!-- Bootstrap tooltips -->
+  <script type="text/javascript" src="/static/js/popper.min.js"></script>
+  <!-- Bootstrap core JavaScript -->
+  <script type="text/javascript" src="/static/js/bootstrap.min.js"></script>
+  <!-- MDB core JavaScript -->
+  <script type="text/javascript" src="/static/js/mdb.js"></script>
+</body>
+
+</html>

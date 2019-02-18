@@ -1,0 +1,1 @@
+web: gunicorn SurveyDjango.wsgi --log-file -

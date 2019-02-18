@@ -1,0 +1,53 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://unpkg.com/mustard-ui@latest/dist/css/mustard-ui.min.css">
+  <meta charset="UTF-8">
+  <title>{{ title }}</title>
+</head>
+
+<body>
+  <div class="container">
+    <div class="col-md-12">
+      <div class="form-control-group" style="height:100%">
+        <form action="{% url 'survey:submitVote' survey.id %}" method="post">
+          <div class="page-header">
+            home
+            <h4> {{ survey.survey_title }}</h4>
+            </d>
+            {% csrf_token %}
+            {% for question in questions %}
+            <!-- <h2 align="center">{{question.question_txt}} </h2> -->
+            <fieldset>
+              <legend style="font-size:20px">Question {{question.id}}</legend>
+              <h6> {{question.question_txt}} </h6>
+              {% for answer in question.answer_set.all %}
+              <div class="form-control">
+                <label style="font-size:20px"><input type="radio" name="answer{{question.id}}" value="{{answer.id}}">{{answer.answer_txt}}</label>
+                <!-- <input type="text" name="answer{{question.id}}" value="{{answer.id}}"> -->
+              </div>
+              {% endfor %}
+            </fieldset>
+            {% endfor %}
+            <div style="display: grid;">
+              <input class="button" type="submit" value="submit">
+            </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript" src="/static/js/jquery-3.3.1.min.js"></script>
+  <!-- Bootstrap tooltips -->
+  <script type="text/javascript" src="/static/js/popper.min.js"></script>
+  <!-- Bootstrap core JavaScript -->
+  <script type="text/javascript" src="/static/js/bootstrap.min.js"></script>
+  <!-- MDB core JavaScript -->
+  <script type="text/javascript" src="/static/js/mdb.js"></script>
+</body>
+
+</html>
