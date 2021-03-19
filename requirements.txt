@@ -34,7 +34,7 @@ django-haystack==2.8.1
 django-infinite-scroll-pagination==0.2.0
 django-spirit==0.7.0
 django-timezone-field==3.0
-djangorestframework==3.9.0
+djangorestframework==3.11.2
 djangorestframework-jwt==1.11.0
 dnspython==1.15.0
 ephem==3.7.6.0
