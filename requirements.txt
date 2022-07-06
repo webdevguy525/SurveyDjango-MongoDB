@@ -69,7 +69,7 @@ itsdangerous==0.24
 itypes==1.1.0
 Jinja2==2.10
 kombu==4.2.1
-lxml==4.3.0
+lxml==4.9.1
 Mako==1.0.7
 MarkupSafe==1.0
 mistune==0.7.4
